@@ -8,6 +8,13 @@
 
 **Entrada**: Descripción del usuario: «Crea la especificación de un gestor de tareas llamado Tcanvapro, debe manejar la gestión de tareas con el tablero Canva, debe ser simple para poder mover las tareas según drag and drop, usa como referencia la imagen adjunta validada».
 
+## Aclaraciones
+
+### Sesión 2026-10-20
+
+- P: ¿Qué debe poder hacer la persona usuaria para restablecer los datos del tablero? → A: No habrá reinicio general; las tareas y secciones se eliminarán manualmente.
+- P: ¿Los datos del tablero deben poder trasladarse a otro dispositivo o navegador? → A: No; permanecerán en el dispositivo y navegador actuales, sin traslado ni sincronización.
+
 ## Escenarios de usuario y pruebas
 
 ### Historia de usuario 1: Organizar tareas en un tablero (Prioridad: P1)
@@ -83,6 +90,8 @@ Como persona usuaria, quiero agregar, renombrar, ordenar y quitar secciones, par
 - **FR-010**: La interfaz y los mensajes dirigidos a usuarios MUST estar en español de Perú.
 - **FR-011**: Las acciones de arrastrar y soltar MUST tener una alternativa accesible para mover una tarea a otra columna sin arrastrarla.
 - **FR-012**: El tablero MUST mostrar una indicación comprensible si no puede guardar un cambio y permitir reintentar sin perder los datos ingresados.
+- **FR-013**: El sistema MUST permitir eliminar tareas y secciones individualmente, y no MUST ofrecer una acción para borrar todos los datos del tablero de una sola vez.
+- **FR-014**: El sistema MUST conservar los datos solo para el mismo dispositivo y navegador; no ofrecerá exportación, importación ni sincronización con otros dispositivos.
 
 ### Entidades clave
 
@@ -103,6 +112,8 @@ Como persona usuaria, quiero agregar, renombrar, ordenar y quitar secciones, par
 ## Supuestos
 
 - La versión inicial está dirigida a una sola persona y un tablero local; no incluye cuentas, colaboración entre personas ni sincronización entre dispositivos.
+- No habrá una acción de reinicio o borrado general del tablero; la persona administrará los datos eliminando tareas y secciones individualmente.
+- Los datos solo se necesitan en el dispositivo y navegador donde se utiliza la aplicación; no se requiere trasladarlos ni sincronizarlos.
 - El tablero utiliza las tres secciones iniciales mostradas en la imagen de referencia, y permite personalizarlas.
 - La imagen adjunta es referencia visual para una vista oscura de columnas con encabezados, conteos, tarjetas, fechas y acciones para agregar tareas y secciones. No se infieren funciones de comentarios, reacciones, asignación, archivos adjuntos ni etiquetas operativas a partir de iconos no explicados.
 - Las tareas no tienen prioridad, asignatario ni repetición en esta versión, dado que no se solicitaron explícitamente.
