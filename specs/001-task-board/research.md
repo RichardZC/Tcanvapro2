@@ -28,10 +28,10 @@
 - API Node separada: se rechaza por añadir proceso, endpoints y mantenimiento que no aporta a la función local individual.
 - Servidor de aplicaciones: no hay renderizado de servidor, autenticación ni datos compartidos que lo requieran.
 
-## Decisión 3: Vitest para pruebas automatizadas locales
+## Decisión 3: mantener validación manual desde la interfaz
 
-**Decisión**: Usar Vitest para reglas de validación y componentes React, compartiendo la configuración Vite. Verificar OPFS real desde navegador con la guía de validación, porque la persistencia de navegador no queda demostrada por pruebas simuladas del worker.
+**Decisión**: No se configura una herramienta de pruebas automatizadas para la primera entrega. Los recorridos funcionales y la persistencia OPFS se validan manualmente en un navegador moderno siguiendo `quickstart.md`; `npm run build` comprueba la compilación de producción.
 
-**Motivo**: Vitest usa la configuración y canal de transformación de Vite y soporta pruebas de componentes; limita configuración duplicada. [Vitest: guía de inicio](https://vitest.dev/guide/index.html), [Vitest: funcionalidades](https://vitest.dev/guide/features)
+**Motivo**: El usuario pidió implementar la funcionalidad y la skill de implementación no exige crear pruebas automatizadas salvo solicitud expresa. Los recorridos manuales cubren la persistencia real de SQLite WASM en OPFS, que una base simulada no demostraría.
 
-**Alternativas consideradas**: Jest requeriría un canal de transformación separado para el proyecto Vite. Ningún automatizador integral de navegador es necesario para definir la arquitectura inicial; los casos de aceptación se verifican visualmente y en el navegador local.
+**Alternativas consideradas**: Vitest podría añadirse después si se solicita automatizar reglas y componentes. Para comprobar flujos visuales y OPFS real también se requeriría navegador automatizado, fuera del alcance actual.

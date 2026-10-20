@@ -12,11 +12,11 @@ Construir un tablero personal de tareas con React y Vite, con almacenamiento SQL
 
 **Lenguaje/versión**: JavaScript con módulos ES; ejecución en navegadores modernos.
 
-**Dependencias principales**: React, Vite, SQLite WASM oficial; Vitest para pruebas de unidad.
+**Dependencias principales**: React, Vite y SQLite WASM oficial.
 
 **Almacenamiento**: SQLite WASM sobre OPFS, operado desde Web Worker; los datos quedan vinculados al origen del sitio en ese navegador y dispositivo.
 
-**Pruebas**: Vitest para lógica y componentes; comprobación manual en navegador de persistencia OPFS, arrastre, teclado y flujos de aceptación.
+**Validación**: compilación de producción y comprobación manual en navegador de persistencia OPFS, arrastre, teclado y recorridos de aceptación.
 
 **Plataforma objetivo**: Navegadores modernos en escritorio y tamaños adaptables; contexto seguro HTTPS o `localhost` para OPFS.
 
@@ -25,6 +25,8 @@ Construir un tablero personal de tareas con React y Vite, con almacenamiento SQL
 **Metas de rendimiento**: El movimiento de tarjeta debe actualizar el tablero de forma inmediata para la persona; cumplir los tiempos de uso de SC-001 y SC-002.
 
 **Restricciones**: Una sola persona y un tablero local; sin exportar, importar, sincronizar, cuentas ni borrado masivo. OPFS puede estar sujeto a cuota del navegador y a que la persona borre los datos del sitio. La interfaz debe estar en español de Perú y ajustarse al prototipo oscuro validado.
+
+**Persistencia operativa**: SQLite WASM usa `opfs-sahpool` desde un worker Vite (`new Worker(new URL(...), { type: 'module' })`); no requiere cabeceras de aislamiento COOP/COEP. Se inicializa un solo worker y una sola conexión en cola serializada. La base se guarda en el OPFS del origen `localhost`/HTTPS; Safari/Firefox necesitan soporte OPFS y modo seguro.
 
 **Escala/alcance**: Un tablero, un dispositivo y un origen de navegador, tres secciones iniciales personalizables y el conjunto de tareas personales sin límite de negocio establecido.
 
@@ -54,7 +56,6 @@ specs/001-task-board/
 ├── quickstart.md
 ├── contracts/
 │   └── board-ui.md
-└── tasks.md              # Lo genera $speckit-tasks
 ```
 
 ### Código fuente (raíz del repositorio)
@@ -69,15 +70,9 @@ src/
 ├── hooks/                 # Integración React con el repositorio local
 └── styles/                # Tema oscuro y adaptación de pantalla
 
-public/
-└── sqlite/                # Recursos WASM/worker requeridos por la distribución elegida
-
-tests/
-├── unit/                  # Validación y reglas de orden/estado
-└── components/            # Interacción del tablero y mensajes
 ```
 
-**Decisión de estructura**: una aplicación web en la raíz, sin división artificial frontend/backend. El Web Worker contiene el acceso a SQLite y la interfaz se comunica con un repositorio local. Se conservan separadas la presentación, las operaciones del tablero y la persistencia para poder comprobar las reglas con pruebas simples.
+**Decisión de estructura**: una aplicación web en la raíz, sin división artificial frontend/backend. El Web Worker contiene el acceso a SQLite y la interfaz se comunica con un repositorio local. Se conservan separadas la presentación, las operaciones del tablero y la persistencia.
 
 ## Registro de complejidad
 

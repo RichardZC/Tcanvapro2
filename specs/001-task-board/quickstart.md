@@ -1,4 +1,4 @@
-# Guía rápida de validación: Tablero de tareas
+# GuÃƒÂ­a rÃƒÂ¡pida de validaciÃƒÂ³n: Tablero de tareas
 
 ## Requisitos
 
@@ -8,35 +8,34 @@
 
 ## Arranque local
 
-Desde la raíz del proyecto:
+Desde la raÃƒÂ­z del proyecto:
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Abrir la URL local que informa Vite. Los scripts se concretarán cuando se cree `package.json`.
+Abrir la URL local que informa Vite (normalmente `http://localhost:5173`).
 
-## Comprobaciones automatizadas y compilación
+## CompilaciÃƒÂ³n
 
 ```powershell
-npm test
 npm run build
 ```
 
-Resultado esperado: las pruebas de reglas y componentes pasan y la compilación termina sin errores.
+Resultado esperado: la compilaciÃƒÂ³n de producciÃƒÂ³n termina sin errores. La validaciÃƒÂ³n funcional se realiza manualmente en navegador con los recorridos siguientes.
 
-## Recorridos de aceptación en navegador
+## Recorridos de aceptaciÃƒÂ³n en navegador
 
-1. Abrir la aplicación por primera vez. Ver las tres secciones en el orden previsto y sus conteos en cero.
-2. Crear una tarea con título y otra con título, descripción y fecha límite. Verificar que la tarjeta de la segunda muestra la fecha y la primera no muestra una fecha ficticia.
-3. Mover una tarea arrastrándola a otra sección; reordenar otra tarjeta dentro de una sección. Recargar la página y confirmar sección y orden.
-4. Usar teclado para mover una tarea a otra sección y verificar el mismo resultado.
-5. Editar título, descripción y fecha límite; cancelar una edición y verificar que conserva los valores previos.
-6. Eliminar una tarea confirmando el diálogo; cancelar otro borrado y verificar que la tarjeta permanece.
-7. Crear, renombrar y reordenar una sección. Intentar borrar una sección con tareas y comprobar que la aplicación indica cómo vaciarla. Vaciarla, borrarla y confirmar.
-8. Verificar que los encabezados muestran el conteo vigente tras cada alta, movimiento y eliminación.
-9. Probar el diseño con ancho de escritorio y uno estrecho; comprobar que tareas y controles siguen disponibles y legibles.
-10. Comprobar un fallo de almacenamiento o la falta de soporte OPFS en un entorno de prueba: la aplicación informa el problema, conserva la entrada y ofrece reintentar sin afirmar que guardó.
+1. Abrir la aplicaciÃƒÂ³n por primera vez. Ver las tres secciones en el orden previsto y sus conteos en cero.
+2. Crear una tarea con tÃƒÂ­tulo y otra con tÃƒÂ­tulo, descripciÃƒÂ³n y fecha lÃƒÂ­mite. Verificar que la tarjeta de la segunda muestra la fecha y la primera no muestra una fecha ficticia.
+3. Mover una tarea arrastrÃƒÂ¡ndola a otra secciÃƒÂ³n; reordenar otra tarjeta dentro de una secciÃƒÂ³n. Recargar la pÃƒÂ¡gina y confirmar secciÃƒÂ³n y orden.
+4. Usar teclado para mover una tarea a otra secciÃƒÂ³n y verificar el mismo resultado.
+5. Editar tÃƒÂ­tulo, descripciÃƒÂ³n y fecha lÃƒÂ­mite; cancelar una ediciÃƒÂ³n y verificar que conserva los valores previos.
+6. Eliminar una tarea confirmando el diÃƒÂ¡logo; cancelar otro borrado y verificar que la tarjeta permanece.
+7. Crear, renombrar y reordenar una secciÃƒÂ³n. Intentar borrar una secciÃƒÂ³n con tareas y comprobar que la aplicaciÃƒÂ³n indica cÃƒÂ³mo vaciarla. Vaciarla, borrarla y confirmar.
+8. Verificar que los encabezados muestran el conteo vigente tras cada alta, movimiento y eliminaciÃƒÂ³n.
+9. Probar el diseÃƒÂ±o con ancho de escritorio y uno estrecho; comprobar que tareas y controles siguen disponibles y legibles.
+10. Probar la interfaz con almacenamiento deshabilitado o un error de SQLite. Debe informar que no se pudo guardar, conservar el contenido del formulario y ofrecer un botón de reintento antes de cerrar la vista.
 
-Los datos de prueba se conservan entre recargas en el mismo origen del navegador. Para iniciar un recorrido desde una base vacía, borrar los datos locales del sitio desde las herramientas del navegador; esto elimina permanentemente esa base de prueba.
+Los datos de prueba se conservan entre recargas en el mismo origen del navegador. Para iniciar un recorrido desde una base vacÃƒÂ­a, borrar los datos locales del sitio desde las herramientas del navegador; esto elimina permanentemente esa base de prueba.
