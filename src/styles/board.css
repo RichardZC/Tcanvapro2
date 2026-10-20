@@ -1,0 +1,44 @@
+/* Overrides for compact viewports while preserving a horizontal board. */
+.task-composer textarea,
+.task-composer input[type="date"] {
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 9px;
+  border: 1px solid #484848;
+  border-radius: 5px;
+  background: #222;
+  color: #eee;
+  font-size: 12px;
+}
+
+.task-composer textarea {
+  resize: vertical;
+}
+
+@media (max-width: 560px) {
+  .board-columns {
+    gap: 9px;
+    padding-right: 5px;
+  }
+
+  .board-column {
+    min-height: 120px;
+  }
+
+  .task-card {
+    min-height: 92px;
+  }
+
+  .add-section-button {
+    flex-basis: 120px;
+  }
+}
+
+.task-card__description {
+  margin: 7px 0 0 19px;
+  color: #a8a8a8;
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

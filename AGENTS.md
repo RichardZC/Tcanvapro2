@@ -11,8 +11,7 @@ Gestor de tareas mediante el tablero Canva.
 ## Desarrollo local
 
 - Arranque: `npm install` y `npm run dev` desde la raíz.
-- Pruebas: `npm test` desde la raíz.
-- La estructura y los scripts aún no están creados en este repositorio; al incorporarlos, ajustar estos comandos a `package.json`.
+- Verificación local: `npm run build` desde la raíz; no se ha configurado un runner de pruebas automatizadas.
 
 ## Convenciones
 
